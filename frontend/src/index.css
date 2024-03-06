@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.sidebar{
+  background-color: black;
+}
+
+
+
+
+/* Sidebar.css */
+.sidebar {
+  position: absolute;
+  left: -1px;
+  width: 250px;
+  height: 100%;
+  background-color: #343a40;
+  padding: 15px;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0; /* Show the sidebar by setting left to 0 */
+}
+
+.toggle-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  transition: left 0.3s ease;
+}
+
+.toggle-button.open {
+  left: 260px; /* Shift the toggle button to make space for the expanded sidebar */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none; /* Hide the sidebar on medium screens */
+  }
+
+  .toggle-button {
+    display: block; /* Display the toggle button on medium screens */
+  }
+}
