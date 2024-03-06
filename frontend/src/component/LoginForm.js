@@ -7,7 +7,7 @@ const LoginForm = () => {
         <div className=''>
             <div className=' flex align-middle justify-center text-center py-4'>
                 <span className='text-2xl text-purple-700 pe-2'><RiWallet2Fill /></span>
-                <span className=''>PayHabib</span>
+                <span className='font-semibold'>PayHabib</span>
             </div>
             <div className='my-3 text-center'>
                 <h3 className='p-3 text-3xl font-semibold'>Login</h3>
@@ -23,7 +23,7 @@ const LoginForm = () => {
                     <Form.Control required className='bg-light' type="password" placeholder="Enter at least 8+ characters" />
                 </Form.Group>
                 <Form.Group className="mt-5">
-                    <Form.Control className='bg-purple-700 text-white font-bold text-xl py-2 shadow-xl' type="button" value="Sign up" />
+                    <Form.Control className='bg-purple-700 text-white font-bold text-2xl py-2 shadow-xl' type="button" value="Sign up" />
                 </Form.Group>
             </Form>
         </div>

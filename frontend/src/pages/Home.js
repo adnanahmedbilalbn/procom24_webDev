@@ -1,8 +1,19 @@
 import React from 'react'
+import HomeNavbar from '../component/payHabib/Navbar'
+import Banner from '../component/payHabib/Banner'
+import Services from '../component/payHabib/Services'
+import Solutions from '../component/payHabib/Solution'
+import Pricing from '../component/payHabib/Pricing'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      <HomeNavbar />
+      <Banner />
+      <Services />
+      <Solutions />
+      <Pricing />
+    </div>
   )
 }
 
