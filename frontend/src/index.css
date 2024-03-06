@@ -6,20 +6,13 @@
   width: 80%;
 }
 
-.sidebar{
-  background-color: black;
-}
-
-
-
-
 /* Sidebar.css */
 .sidebar {
   position: absolute;
   left: -1px;
-  width: 250px;
+  /* width: 250px; */
   height: 100%;
-  background-color: #343a40;
+  background-color: #f3f3f3;
   padding: 15px;
   transition: left 0.3s ease;
 }
@@ -27,25 +20,95 @@
 .sidebar.open {
   left: 0; /* Show the sidebar by setting left to 0 */
 }
-
 .toggle-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1;
-  transition: left 0.3s ease;
+  display: none;
+}
+@media (max-width: 992px) {
+  .sidebar {
+    display: none; 
+  }  .toggle-button {
+    display: block;
+  }
 }
 
-.toggle-button.open {
-  left: 260px; /* Shift the toggle button to make space for the expanded sidebar */
-}
 
 @media (max-width: 768px) {
-  .sidebar {
-    display: none; /* Hide the sidebar on medium screens */
+.facts-number{
+    margin-top: auto !important;
+    width: max-content !important;
   }
+}
+.navbar svg{
+  display: initial;
+}
+.dropdown-menu[data-bs-popper] {
+  left: -60px;
+  top: initial;
+}
 
-  .toggle-button {
-    display: block; /* Display the toggle button on medium screens */
-  }
+.dropdown-toggle::after{
+  display: none;
+}
+
+.sidebar-item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #5d5b5b;
+}
+
+.dashboard-main{
+  background-color: #fff;
+}
+
+.facts-container{
+
+  border-radius: 10px;
+  height: 140px;
+  width: 25%;
+  margin: 10px;
+  padding: 10px ;
+  text-align: center;
+}
+.facts-number{
+  border-radius: 10px;
+  padding: 3px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.teal-box{
+  background-color: rgb(195, 255, 255);
+  border: 1px solid transparent;
+}
+.teal-box:hover{
+  border: 1px solid aqua;
+}
+.teal-box .facts-number{
+  border: 1px solid aqua;
+  color: rgb(61, 192, 192);
+}
+.green-box{
+  background-color: rgb(170, 255, 184);
+  border: 1px solid transparent;
+}
+.green-box .facts-number{
+  border: 1px solid rgb(72, 255, 0);
+  color: rgb(43, 132, 18);
+}
+.green-box:hover{
+  border: 1px solid rgb(43, 255, 0);
+}
+.red-box{
+  background-color: rgb(255, 211, 211);
+
+  border: 1px solid transparent;
+
+}
+.red-box .facts-number{
+  color: rgb(255, 0, 0);
+  border: 1px solid rgb(255, 0, 0);
+}
+.red-box:hover{
+  border: 1px solid rgb(255, 0, 0);
 }

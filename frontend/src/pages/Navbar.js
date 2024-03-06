@@ -1,62 +1,57 @@
-// import React from 'react';
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-
-// const Header = () => {
-//   return (
-//     <Navbar expand="lg" className="bg-body-tertiary">
-//     <Container>
-//       <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-//       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-//       <Navbar.Collapse id="basic-navbar-nav">
-//         <Nav className="me-auto">
-//           <Nav.Link href="#home">Home</Nav.Link>
-//           <Nav.Link href="#link">Link</Nav.Link>
-//           <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-//             <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-//             <NavDropdown.Item href="#action/3.2">
-//               Another action
-//             </NavDropdown.Item>
-//             <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-//             <NavDropdown.Divider />
-//             <NavDropdown.Item href="#action/3.4">
-//               Separated link
-//             </NavDropdown.Item>
-//           </NavDropdown>
-//         </Nav>
-//       </Navbar.Collapse>
-//     </Container>
-//   </Navbar>
-//   )
-// }
-
-// export default Header;
-
-
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { BiSearchAlt } from "react-icons/bi";
+import { BiSearchAlt, BiMessageDetail } from "react-icons/bi";
 import { MdOutlineQuestionMark } from "react-icons/md";
-import { BiMessageDetail } from "react-icons/bi";
-import { FaRegBell } from "react-icons/fa6";
+import { FaRegBell } from "react-icons/fa";
 import { GoChevronDown } from "react-icons/go";
+import { Dropdown } from 'react-bootstrap';
+import { FiUser, FiLogOut } from 'react-icons/fi';
+import { FaChevronDown } from "react-icons/fa6";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 
+const UserDropdown = ({ userName }) => {
+  const [open, setOpen] = useState(false);
 
+  const handleToggle = () => {
+    setOpen(!open);
+  };
 
+  const handleLogout = () => {
+    // Add your logout logic here
+    console.log("Logout clicked");
+  };
 
-
-function NavBar() {
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Dropdown className='inline ms-2 me-2' show={open} onClick={handleToggle}>
+      <Dropdown.Toggle variant="transparent" id="dropdown-basic">
+        <div className='d-flex items-center'>
+        <FiUser />
+        <span>{userName}</span>
+        <FaChevronDown className='text-xs	'/>
+        </div>
+      </Dropdown.Toggle>
+
+      <Dropdown.Menu>
+        <Dropdown.Divider />
+        <Dropdown.Item onClick={handleLogout}>
+          <FiLogOut /> Logout
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown>
+  );
+};
+
+const NavBar = ({ brandName, brandIcon, userName }) => {
+  return (
+    <Navbar expand="lg" className='border-b-2	'>
       <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+        <span className='toggle-button'><RxHamburgerMenu /></span>
+        <Navbar.Brand className='flex	text-base	'>{brandIcon}{brandName}</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -64,66 +59,21 @@ function NavBar() {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
           </Nav>
           <Form className="d-flex">
-          <div>
-            <BiSearchAlt />
-            <MdOutlineQuestionMark />
-            <BiMessageDetail />
-            <FaRegBell />
-            <Button variant="outline-success"> Create <GoChevronDown /> </Button>
-
-
-          </div>
-
-
-            {/* <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button> */}
+            <div>
+              <BiSearchAlt  className="ms-2 me-2" />
+              <MdOutlineQuestionMark className="ms-2 me-2" />
+              <BiMessageDetail className="ms-2 me-2" />
+              <FaRegBell className="ms-2 me-2" />
+              <Button className="ms-2 me-2" variant="outline-success"> Create <GoChevronDown /> </Button>
+              <UserDropdown userName={userName} />
+            </div>
           </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
   );
-}
+};
 
 export default NavBar;
-
-
-// Navbar.js
-// import React from 'react';
-// import { Navbar, Nav } from 'react-bootstrap';
-
-// const NavBar = () => {
-//   return (
-//     <Navbar bg="dark" variant="dark">
-//       <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
-//       <Nav className="mr-auto">
-//         <Nav.Link href="#home">Home</Nav.Link>
-//         <Nav.Link href="#features">Features</Nav.Link>
-//         <Nav.Link href="#pricing">Pricing</Nav.Link>
-//       </Nav>
-//     </Navbar>
-//   );
-// };
-
-// export default NavBar;
