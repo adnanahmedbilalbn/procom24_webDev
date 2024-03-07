@@ -3,9 +3,28 @@ import NavBar from './Navbar';
 import Sidebar from './Sidebar';
 import ResponsiveTable from './ResponsiveTable';
 import { CiWallet } from "react-icons/ci";
+import { useFetchPaymentsQuery } from '../store';
+import { useSelector } from "react-redux";
 
 
 const Dashboard = () => {
+
+  const accountNumber = useSelector((state) => {
+    console.log("Selector =>", state);
+    return state;
+  });
+  
+  console.log(accountNumber);
+
+  const {data, isSuccess} = useFetchPaymentsQuery(accountNumber);
+
+  if(data){
+    console.log(data);
+  }
+  else{
+    console.log("No Data")
+  }
+
   return (
     <div>
       <NavBar
@@ -37,10 +56,30 @@ const Dashboard = () => {
             {/* <ResponsiveTable /> */}
             <ResponsiveTable
                headers={['CUSTOMER ACCOUNT NO.', 'MERCHANT ACCOUNT NO.', 'STATUS', 'DESCRIPTION', 'TIME', 'DATE', 'AMOUNT']}
-               data={[
-                 ['1', 'John', 'Doe', '@john_doe', '02:00 PM', '07/03/2024', '60 $'],
-                 ['2', 'Jane', 'Doe', '@jane_doe', '02:00 PM', '07/03/2024', '60 $'],
-               ]}
+               data={
+                  data ?
+                    data.map((record) => {
+                      const dateTime = new Date(record.date);
+
+                      // Extracting date components
+                      const year = dateTime.getFullYear();
+                      const month = dateTime.getMonth() + 1; // Month is zero-based, so adding 1
+                      const day = dateTime.getDate();
+
+                      // Extracting time components
+                      const hours = dateTime.getHours();
+                      const minutes = dateTime.getMinutes();
+                      const seconds = dateTime.getSeconds();
+
+                      return [record.accountNumber, 10, record.status, record.description, (hours+":"+minutes), (year+"/"+month+"/"+day), record.amount]
+                    })
+                    :
+                    
+                    [
+                      ['1', 'John', 'Doe', '@john_doe', '02:00 PM', '07/03/2024', '60 $'],
+                      ['2', 'Jane', 'Doe', '@jane_doe', '02:00 PM', '07/03/2024', '60 $'],
+                    ]
+               }
             />
           </div>
         </div>
