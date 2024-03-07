@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import {RiWallet2Fill} from 'react-icons/ri'
+import { Dropdown } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const HomeNavbar = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleToggle = () => {
+    setOpen(!open);
+  };
+
+  const navigate = useNavigate()
+
+
+
   return (
     <Navbar collapseOnSelect expand="lg" className="shadow-2xl">
       <Container>
@@ -22,9 +34,39 @@ const HomeNavbar = () => {
             <Nav.Link className='text-lg px-4' href="#help-center">Help Center</Nav.Link>
           </Nav>
           <Nav>
+<<<<<<< HEAD
             <Nav.Link href="/login">
               <Button variant='outline-lighht' className='font-semibold text-violet-600 px-3'>Log in</Button>
             </Nav.Link>
+=======
+            {/* <Nav.Link href="/">
+              <Button variant='outline-lighht' className='font-semibold text-purple-700 px-3'>Log in</Button>
+            </Nav.Link> */}
+
+              <Nav.Link>
+                <Dropdown className='inline ms-2 me-2' show={open} onClick={handleToggle}>
+                <Dropdown.Toggle variant="transparent" id="dropdown-basic">
+                  <Button variant='outline-lighht' className='font-semibold text-purple-700 px-3'>Log in</Button>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                 <Dropdown.Item onClick={()=> {navigate('merchant/login')}}>
+                 <span className='text-xl text-purple-500'><RiWallet2Fill /> Merchant</span>
+                </Dropdown.Item>
+                <Dropdown.Divider />
+                <Dropdown.Item  >
+                 <span className='text-xl text-cyan-500 ' onClick={()=> {navigate('customer/login')}}><RiWallet2Fill /> Customer</span>
+                </Dropdown.Item>
+               </Dropdown.Menu>
+              </Dropdown>   
+           </Nav.Link>
+
+
+
+
+
+
+>>>>>>> 1350aa2dc6fb3aa34a5cc7169d77943ceb559422
           </Nav>
         </Navbar.Collapse>
       </Container>

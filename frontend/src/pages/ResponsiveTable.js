@@ -61,7 +61,7 @@ import { Table, Button } from 'react-bootstrap';
 
 const ResponsiveTable = ({ headers, data }) => {
   return (
-    <Table striped hover responsive>
+    <Table striped hover responsive className='mt-5'>
       <thead>
         <tr>
           {headers.map((header, index) => (
