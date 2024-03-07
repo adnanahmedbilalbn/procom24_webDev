@@ -34,11 +34,9 @@ const HomeNavbar = () => {
             <Nav.Link className='text-lg px-4' href="#help-center">Help Center</Nav.Link>
           </Nav>
           <Nav>
-<<<<<<< HEAD
             <Nav.Link href="/login">
               <Button variant='outline-lighht' className='font-semibold text-violet-600 px-3'>Log in</Button>
             </Nav.Link>
-=======
             {/* <Nav.Link href="/">
               <Button variant='outline-lighht' className='font-semibold text-purple-700 px-3'>Log in</Button>
             </Nav.Link> */}
@@ -66,7 +64,6 @@ const HomeNavbar = () => {
 
 
 
->>>>>>> 1350aa2dc6fb3aa34a5cc7169d77943ceb559422
           </Nav>
         </Navbar.Collapse>
       </Container>
