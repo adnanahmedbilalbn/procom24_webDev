@@ -5,7 +5,7 @@ import {RiWallet2Fill} from 'react-icons/ri'
 
 const SignupForm = () => {
     return (
-        <div className='mx-20'>
+        <div className='xl:mx-16'>
             <div className=' flex align-middle justify-center text-center py-4'>
                 <span className='text-2xl text-cyan-400 pe-2'><RiWallet2Fill /></span>
                 <span className='font-bold'>CustomerPortal</span>
