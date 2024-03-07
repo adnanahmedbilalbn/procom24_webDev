@@ -12,9 +12,11 @@ import MerchantSidebar from './MerchantDashboard/MerchantSidebar';
 import { useNavigate } from "react-router-dom";
 
 const MerchantDashboard = () => {
-  const accountNumber = useSelector((state) => state.userData.accountNumber);
-  const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
-  const {allPaymentData, _} = useFetchAllPaymentsQuery();
+  // const accountNumber = useSelector((state) => state.userData.accountNumber);
+  const { data, isSuccess } = useFetchPaymentsQuery(-99);
+
+  console.log(data)
+  
   const [activeSection, setActiveSection] = useState('payment');
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -29,8 +31,6 @@ const MerchantDashboard = () => {
   if (!isLoggedIn){
     navigate("/merchant/login")
   }
-
-  console.log(allPaymentData)
 
   return (
     <div>
@@ -47,7 +47,7 @@ const MerchantDashboard = () => {
           {/*  */}
           <div className="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 dashboard-main">
 
-          {activeSection === 'payment' && <Payment merchant={true} data={data} allPaymentData={allPaymentData}/>}
+          {activeSection === 'payment' && <Payment data={data}/>}
           {activeSection === 'instantPayment' && <InstantPayment />}
           {activeSection === 'qrScan' && <QRScan />}
           </ div>

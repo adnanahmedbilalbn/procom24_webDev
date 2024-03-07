@@ -15,9 +15,22 @@ const paymentsApi = createApi({
                     }
                 }
             }),
+
+            changePaymentStatus: builder.mutation({
+                query: (id, status) => {
+                    return {
+                        url: `/api/setStatus/`,
+                        method: "POST",
+                        body: {
+                            id:id,
+                            status: status
+                        }
+                    }
+                }
+            }),
         };
     }
 });
 
-export const { useFetchPaymentsQuery } = paymentsApi;
+export const { useFetchPaymentsQuery, useChangePaymentStatusMutation } = paymentsApi;
 export { paymentsApi };

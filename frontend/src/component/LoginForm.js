@@ -49,7 +49,7 @@ const LoginForm = () => {
         if(username === "merchant" && password === "merchant123"){
             // dispatch(setUser(data))
             dispatch(setLoginState(true))
-            navigate("/")
+            navigate("/merchantDashboard")
         }
         else{
             alert("Wrong Email or Password")

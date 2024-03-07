@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+
   const userData = useSelector((state) => state.userData);
   const accountNumber = userData.accountNumber;
   const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);

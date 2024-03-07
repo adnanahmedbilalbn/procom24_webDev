@@ -56,10 +56,29 @@
 
 
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
+import { useChangePaymentStatusMutation } from '../store';
 
-const ResponsiveTable = ({ headers, data }) => {
+const ResponsiveTable = ({headers, data }) => {
+
+  const [id, setId] = useState();
+  const [status, setStatus] = useState();
+
+  useChangePaymentStatusMutation(id, status)
+
+  console.log(data)
+
+  function payRequest(rowData, rowIndex){
+    setId(rowData.id);
+    setStatus("Accepted")
+  }
+
+  function rejectRequest(rowData, rowIndex){
+    setId(rowData.id)
+    setStatus("Rejected")
+  }
+
   return (
     <Table striped hover responsive className='mt-5'>
       <thead>
@@ -78,8 +97,8 @@ const ResponsiveTable = ({ headers, data }) => {
             ))}
             <td>
               <div>
-                <Button className='bg-green-400' variant="success">Pay</Button>{' '}
-                <Button className='bg-red-400' variant="danger">Reject</Button>{' '}
+                <Button className='bg-green-400' onClick={() => payRequest(rowData, rowIndex)} variant="success">Pay</Button>{' '}
+                <Button className='bg-red-400' onClick={() => rejectRequest(rowData, rowIndex)} variant="danger">Reject</Button>{' '}
               </div>
             </td>
           </tr>
