@@ -10,7 +10,7 @@ const HomeNavbar = () => {
     <Navbar collapseOnSelect expand="lg" className="shadow-2xl">
       <Container>
         <Navbar.Brand className='flex align-items-center ps-4' href="/">
-          <span className='text-2xl text-purple-700 pe-1'><RiWallet2Fill /></span>
+          <span className='text-4xl text-violet-600 pe-1'><RiWallet2Fill /></span>
           <span className='text-2xl font-semibold'>PayHabib</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,7 +23,7 @@ const HomeNavbar = () => {
           </Nav>
           <Nav>
             <Nav.Link href="/login">
-              <Button variant='outline-lighht' className='font-semibold text-purple-700 px-3'>Log in</Button>
+              <Button variant='outline-lighht' className='font-semibold text-violet-600 px-3'>Log in</Button>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

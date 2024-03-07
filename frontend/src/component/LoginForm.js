@@ -76,7 +76,7 @@ const LoginForm = () => {
                     <Form.Control required className='bg-light' type="password" placeholder="Enter at least 8+ characters" onChange={passwordChange}/>
                 </Form.Group>
                 <Form.Group className="mt-5">
-                    <Form.Control className='bg-purple-700 text-white font-bold text-2xl py-2 shadow-xl' type="submit" value="Sign in" />
+                    <Form.Control className='bg-violet-600 text-white font-bold text-2xl py-2 shadow-xl' type="submit" value="Sign in" />
                     </Form.Group>
                 <Form.Group className="mt-5 d-grid">
                     <Button type='submit' size='lg' className='border-none sign-in-btn bg-violet-500 hover:bg-violet-500  text-white font-bold text-xl py-2 shadow-xl'>Sign in</Button>
