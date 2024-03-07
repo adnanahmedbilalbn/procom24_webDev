@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button'
 import {RiWallet2Fill} from 'react-icons/ri'
 import { useFetchUsersQuery } from '../store';
 import { useState } from 'react';
@@ -56,14 +57,14 @@ const LoginForm = () => {
     }
 
     return (
-        <div className=''>
+        <div className='mx-24'>
             <div className=' flex align-middle justify-center text-center py-4'>
-                <span className='text-2xl text-purple-700 pe-2'><RiWallet2Fill /></span>
+                <span className='text-2xl text-violet-500 pe-2'><RiWallet2Fill /></span>
                 <span className='font-semibold'>PayHabib</span>
             </div>
             <div className='my-3 text-center'>
-                <h3 className='p-3 text-3xl font-semibold'>Login</h3>
-                <h3 className='p-3 text-3xl font-semibold'><span className='text-purple-700'>PayHabib</span> account</h3>
+                <h3 className='p-3 text-3xl font-bold'>Login</h3>
+                <h3 className='py-3 text-3xl font-bold'><span className='text-violet-500'>PayHabib</span> account</h3>
             </div>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-4" controlId="username">
@@ -74,8 +75,13 @@ const LoginForm = () => {
                     <Form.Label className='font-bold'>Password</Form.Label>
                     <Form.Control required className='bg-light' type="password" placeholder="Enter at least 8+ characters" onChange={passwordChange}/>
                 </Form.Group>
+<<<<<<< HEAD
                 <Form.Group className="mt-5">
                     <Form.Control className='bg-purple-700 text-white font-bold text-2xl py-2 shadow-xl' type="submit" value="Sign in" />
+=======
+                <Form.Group className="mt-5 d-grid">
+                    <Button type='submit' size='lg' className='border-none sign-in-btn bg-violet-500 hover:bg-violet-500  text-white font-bold text-xl py-2 shadow-xl'>Sign in</Button>
+>>>>>>> d5fb0a33deac50400609e6aec5f32bd117159f7d
                 </Form.Group>
             </Form>
         </div>

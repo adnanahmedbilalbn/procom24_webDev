@@ -9,7 +9,8 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route exact path='/' element={<Home />} />
-        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/customer-portal/login' element={<Login prop="customer"/>} />
+        <Route exact path='/payhabib/login' element={<Login prop="payhabib"/>} />
         <Route exact path='/customerDashboard' element={<CustomerDashboard />} />
       </Routes>
 
