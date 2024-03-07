@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const accountNumber = useSelector((state) => {
     console.log("Selector =>", state);
-    return state;
+    return state.userData.accountNumber;
   });
   
   console.log(accountNumber);

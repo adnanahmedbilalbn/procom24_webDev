@@ -21,7 +21,7 @@ setupListeners(store.dispatch);
 
 export default store;
 
-export { setUser };
+export { setUser }
 
 export {
   useFetchUsersQuery,
