@@ -3,12 +3,7 @@ import LoginForm from '../component/LoginForm'
 import CustomerLogin from '../component/CustomerLogin'
 import LoginCarousel from '../component/Carousel'
 
-<<<<<<< HEAD
-const Login = () => {
-
-=======
 const Login = ({prop}) => {
->>>>>>> d5fb0a33deac50400609e6aec5f32bd117159f7d
     return (
         <div className='container mx-auto'>
             <div className='row'>
