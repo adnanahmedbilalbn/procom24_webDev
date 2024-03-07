@@ -6,20 +6,37 @@ import Payment from './CustomerDashboard/Payment';
 import InstantPayment from './CustomerDashboard/InstantPayment';
 import QRScan from './CustomerDashboard/QRScan';
 import { CiWallet } from "react-icons/ci";
-import { useFetchPaymentsQuery } from '../store';
+import { useFetchPaymentsQuery, useFetchPaymentsCountQuery } from '../store';
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const accountNumber = useSelector((state) => state.userData.accountNumber);
+  const userData = useSelector((state) => state.userData);
+  const accountNumber = userData.accountNumber;
   const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
   const [activeSection, setActiveSection] = useState('payment');
+
+  console.log(data)
+
+  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isCustomerLoggedIn = useSelector((state) => state.isCustomerLoggedIn);
+
+  const navigate = useNavigate()
+
+  if (!isLoggedIn && !isCustomerLoggedIn){
+    navigate("/customer/login")
+  }
+
+  if (!isCustomerLoggedIn){
+    navigate("/customer/login")
+  }
 
   return (
     <div>
       <NavBar
         brandName={"Customer Portal"}
         brandIcon={<CiWallet className='text-2xl	text-teal-400	'/>}
-        userName={"Adnan"}
+        userName={userData.username}
       />
       <div className="container">
         <div className="row">

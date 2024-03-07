@@ -2,7 +2,7 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import {RiWallet2Fill} from 'react-icons/ri'
-import { useFetchUsersQuery } from '../store';
+import { setLoginState, useFetchUsersQuery } from '../store';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -45,15 +45,19 @@ const LoginForm = () => {
 
     function handleSubmit(event){
         event.preventDefault();
-        if(data){
-            if(data.username === username && data.password === (password + "123")){
-                dispatch(setUser("Saad"))
-                navigate("/")
-            }
-            else{
-                alert("Wrong Email or Password")
-            }
+
+        if(username === "merchant" && password === "merchant123"){
+            // dispatch(setUser(data))
+            dispatch(setLoginState(true))
+            navigate("/")
         }
+        else{
+            alert("Wrong Email or Password")
+        }
+
+        // if(data){
+            
+        // }
     }
 
     return (
