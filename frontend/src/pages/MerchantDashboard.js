@@ -8,8 +8,9 @@ import QRScan from './CustomerDashboard/QRScan';
 import { CiWallet } from "react-icons/ci";
 import { useFetchPaymentsQuery } from '../store';
 import { useSelector } from "react-redux";
+import MerchantSidebar from './MerchantDashboard/MerchantSidebar';
 
-const Dashboard = () => {
+const MerchantDashboard = () => {
   const accountNumber = useSelector((state) => state.userData.accountNumber);
   const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
   const [activeSection, setActiveSection] = useState('payment');
@@ -24,7 +25,7 @@ const Dashboard = () => {
       <div className="container">
         <div className="row">
           <div className="col-2 col-xl-2 col-lg-2 col-md-2 col-sm-2">
-            <Sidebar setActiveSection={setActiveSection} activeSection={activeSection} />
+            <MerchantSidebar setActiveSection={setActiveSection} activeSection={activeSection} />
           </div>
           {/*  */}
           <div className="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 dashboard-main">
@@ -39,4 +40,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default MerchantDashboard;
