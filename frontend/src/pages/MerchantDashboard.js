@@ -15,9 +15,8 @@ import MerchantReport from './MerchantDashboard/MerchantReport';
 const MerchantDashboard = () => {
   const accountNumber = useSelector((state) => state.userData.accountNumber);
   const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
-  const [activeSection, setActiveSection] = useState('Dashboard');
   const {allPaymentData, _} = useFetchAllPaymentsQuery();
-  // const [activeSection, setActiveSection] = useState('payment');
+  const [activeSection, setActiveSection] = useState('payment');
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const isCustomerLoggedIn = useSelector((state) => state.isCustomerLoggedIn);
@@ -31,8 +30,6 @@ const MerchantDashboard = () => {
   if (!isLoggedIn){
     navigate("/merchant/login")
   }
-
-  console.log(allPaymentData)
 
   return (
     <div>

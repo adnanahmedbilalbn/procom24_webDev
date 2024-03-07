@@ -3,14 +3,14 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const getAllPaymentsApi = createApi({
     reducerPath: 'allPayments',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:8000/',
+        baseUrl: 'http://localhost:8000//api/',
     }),
     endpoints(builder) {
         return {
             fetchAllPayments: builder.query({
                 query: () => {
                     return {
-                        url: `/api/getAllPayments/`,
+                        url: `/getAllPayments`,
                         method: "GET"
                     }
                 }

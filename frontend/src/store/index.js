@@ -6,6 +6,7 @@ import { getAllPaymentsApi } from './apis/getAllPayments';
 import { userReducer, setUser } from "./slices/usersSlice";
 import { loginReducer, setLoginState } from './slices/loginSlice';
 import { customerLoginReducer, setCustomerLoginState } from './slices/customerLoginSlice';
+import { useChangePaymentStatusMutation } from './apis/paymentsApi'
 
 export const store = configureStore({
   reducer: {
@@ -37,6 +38,7 @@ export {
 
 export {
   useFetchPaymentsQuery,
+  useChangePaymentStatusMutation
 } from './apis/paymentsApi'
 
 export {
