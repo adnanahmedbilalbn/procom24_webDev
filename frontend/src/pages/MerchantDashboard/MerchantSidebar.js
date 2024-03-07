@@ -11,7 +11,10 @@ import { AiOutlineClose } from "react-icons/ai";
 import { MdDashboard } from "react-icons/md";
 import { PiUsersThreeLight } from "react-icons/pi";
 
+import { BsFileTextFill } from "react-icons/bs";
+import { MdOutlineLibraryBooks } from "react-icons/md";
 
+import { CiSettings } from "react-icons/ci";
 
 
 const MerchantSidebar = ({ setActiveSection, activeSection }) => {
@@ -22,23 +25,44 @@ const MerchantSidebar = ({ setActiveSection, activeSection }) => {
     <div className={`sidebar ${isSidebarActive? 'sidebar-active' : ''}`}>
       <Nav className="flex-column sidebar-items-container">
         <div
-          className={`top-sidebar-item sidebar-item ${activeSection === 'payment' ? 'active' : ''}`}
-          onClick={() => setActiveSection('payment')}>
+          className={`top-sidebar-item merchant-sidebar-item ${activeSection === 'Dashboard' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Dashboard')}>
           <span> <MdDashboard /></span>
           <span>Dashboard</span>
         </div>
         <div
-          className={`sidebar-item ${activeSection === 'instantPayment' ? 'active' : ''}`}
-          onClick={() => setActiveSection('instantPayment')}>
+          className={`merchant-sidebar-item ${activeSection === 'Payments' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Payments')}>
           <span> <LuDollarSign /> </span>
           <span>Payments</span>
         </div>
         <div
-          className={`sidebar-item ${activeSection === 'qrScan' ? 'active' : ''}`}
-          onClick={() => setActiveSection('qrScan')}>
+          className={`merchant-sidebar-item ${activeSection === 'Customers' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Customers')}>
           <span><PiUsersThreeLight /> </span>
           <span>Customers</span>
         </div>
+        <div
+          className={`merchant-sidebar-item ${activeSection === 'Payment Request' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Payment Request')}>
+          <span><BsFileTextFill /> </span>
+          <span>Payment Request</span>
+        </div>
+        <div
+          className={`merchant-sidebar-item ${activeSection === 'Report' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Report')}>
+          <span><MdOutlineLibraryBooks /> </span>
+          <span>Report</span>
+        </div>
+        <div
+          className={`merchant-sidebar-item ${activeSection === 'Setting' ? 'active' : ''}`}
+          onClick={() => setActiveSection('Setting')}>
+          <span><CiSettings /> </span>
+          <span>Setting</span>
+        </div>
+        
+
+
       </Nav>
     </div>
     <span className='toggle-button' onClick={()=>{setSidebarActive(!isSidebarActive)}} > {isSidebarActive?<AiOutlineClose /> : <RxHamburgerMenu />}</span>

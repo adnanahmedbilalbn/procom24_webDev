@@ -122,6 +122,22 @@
   border: 1px solid rgb(34 211 238);
   border-radius: 5px;
 }
+.merchant-sidebar-item{
+  display: flex;
+  align-items: center;
+  padding: .5rem;
+  gap: 10px;
+  color: #5d5b5b;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 5px 0;
+}.merchant-sidebar-item.active{
+  color: #fff ;
+  background-color: purple;
+  border: 1px solid purple;
+  border-radius: 5px;
+}
 
 .dashboard-main{
   background-color: #fff;
@@ -197,4 +213,44 @@
 }
 .table-striped>tbody>tr:nth-of-type(odd)>*{
   --bs-table-bg-type: rgb(165 243 252);
+}
+
+.qr-code-uploader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.upload-box {
+  width: 50%;
+  height: 80%;
+  border: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.browse-box {
+  width: 80%;
+  height: 80%;
+  border: 2px dashed #aaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* .file-input {
+  display: none;
+} */
+
+.qr-code-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.browse-text {
+  margin-top: 10px;
 }
