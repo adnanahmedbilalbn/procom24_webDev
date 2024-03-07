@@ -1,16 +1,16 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const paymentsApi = createApi({
-    reducerPath: 'payments',
+const getAllPaymentsApi = createApi({
+    reducerPath: 'allPayments',
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:8000/',
     }),
     endpoints(builder) {
         return {
-            fetchPayments: builder.query({
-                query: (accountNumber) => {
+            fetchAllPayments: builder.query({
+                query: () => {
                     return {
-                        url: `/api/getPayments/${accountNumber}`,
+                        url: `/api/getAllPayments/`,
                         method: "GET"
                     }
                 }
@@ -19,5 +19,5 @@ const paymentsApi = createApi({
     }
 });
 
-export const { useFetchPaymentsQuery } = paymentsApi;
-export { paymentsApi };
+export const { useFetchAllPaymentsQuery } = getAllPaymentsApi;
+export { getAllPaymentsApi };

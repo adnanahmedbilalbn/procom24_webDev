@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button'
 import {RiWallet2Fill} from 'react-icons/ri'
 
-import { useFetchUsersQuery } from '../store';
+import { setCustomerLoginState, useFetchUsersQuery } from '../store';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -48,8 +48,9 @@ const CustomerLogin = () => {
     function handleSubmit(event){
         event.preventDefault();
         if(data){
-            if(data.username === username && data.password === (password + "123")){
+            if(data.username === username && data.password === password){
                 dispatch(setUser(data))
+                dispatch(setCustomerLoginState(true))
                 navigate("/customerDashboard")
             }
             else{

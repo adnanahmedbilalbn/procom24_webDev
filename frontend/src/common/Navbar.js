@@ -11,9 +11,13 @@ import { GoChevronDown } from "react-icons/go";
 import { Dropdown } from 'react-bootstrap';
 import { FiUser, FiLogOut } from 'react-icons/fi';
 import { FaChevronDown } from "react-icons/fa6";
-
+import { setCustomerLoginState, setLoginState } from '../store';
+import { useNavigate } from "react-router-dom";
 
 const UserDropdown = ({ userName }) => {
+
+  const navigate = useNavigate()
+
   const [open, setOpen] = useState(false);
 
   const handleToggle = () => {
@@ -22,7 +26,9 @@ const UserDropdown = ({ userName }) => {
 
   const handleLogout = () => {
     // Add your logout logic here
-    console.log("Logout clicked");
+    setLoginState(false);
+    setCustomerLoginState(false);
+    navigate("/")
   };
 
   return (
