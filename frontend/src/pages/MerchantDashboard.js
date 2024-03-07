@@ -1,25 +1,24 @@
-// Dashboard.js
 import React, { useState } from 'react';
 import NavBar from '../common/Navbar';
-import Sidebar from '../common/Sidebar';
 import Payment from './CustomerDashboard/Payment';
-import InstantPayment from './CustomerDashboard/InstantPayment';
-import QRScan from './CustomerDashboard/QRScan';
 import { CiWallet } from "react-icons/ci";
 import { useFetchPaymentsQuery } from '../store';
 import { useSelector } from "react-redux";
 import MerchantSidebar from './MerchantDashboard/MerchantSidebar';
+import MerchantPayments from './MerchantDashboard/MerchantPayments';
+import MerchantCustomers from './MerchantDashboard/MerchantCustomer';
+import MerchantDashboard2 from './MerchantDashboard/MerchantDashboard';
 
 const MerchantDashboard = () => {
   const accountNumber = useSelector((state) => state.userData.accountNumber);
   const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
-  const [activeSection, setActiveSection] = useState('payment');
+  const [activeSection, setActiveSection] = useState('Dashboard');
 
   return (
     <div>
       <NavBar
         brandName={"Customer Portal"}
-        brandIcon={<CiWallet className='text-2xl	text-teal-400	'/>}
+        brandIcon={<CiWallet className='text-2xl	text-voilet-400	'/>}
         userName={"Adnan"}
       />
       <div className="container">
@@ -30,9 +29,10 @@ const MerchantDashboard = () => {
           {/*  */}
           <div className="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 dashboard-main">
 
-          {activeSection === 'payment' && <Payment data={data}/>}
-          {activeSection === 'instantPayment' && <InstantPayment />}
-          {activeSection === 'qrScan' && <QRScan />}
+          {activeSection === 'Dashboard' && <MerchantDashboard2 />}
+          {activeSection === 'Payments' && <MerchantPayments />}
+          {activeSection === 'Customers' && <MerchantCustomers />}
+          {activeSection === 'Customers' && <MerchantPayments />}
           </ div>
         </div>
       </div>

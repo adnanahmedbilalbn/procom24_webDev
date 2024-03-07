@@ -72,7 +72,8 @@ const LoginForm = () => {
                     <Form.Control required className='bg-light' type="text" placeholder="Enter username" onChange={usernameChange}/>
                 </Form.Group>
                 <Form.Group className="mb-4" controlId="password">
-                    <Form.Label className='font-bold'>Password</Form.Label>
+                    <Form.Label className='font
+                    -bold'>Password</Form.Label>
                     <Form.Control required className='bg-light' type="password" placeholder="Enter at least 8+ characters" onChange={passwordChange}/>
                 </Form.Group>
            

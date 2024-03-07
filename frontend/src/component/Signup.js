@@ -30,12 +30,20 @@ const SignupForm = () => {
                 <Form.Group className="mb-4" controlId="accountNumber">
                     <Form.Label className='font-bold'>Phone Number</Form.Label>
                     <div className='flex'>
-                    <Form.Select className='bg-light flex-auto w-20'>
-                        <options></options>
-                    </Form.Select>
+
+            <Form.Select aria-label="Default select example" className='bg-gray-100 border-none'>
+              <option>+92</option>
+              <option value="1">+99</option>
+              <option value="2">+474</option>
+              <option value="3">+111</option>
+            </Form.Select>
                     <Form.Control required className='bg-light flex-auto' type="number" placeholder="0123456789" />
                     </div>
                 </Form.Group>
+
+
+
+
                 <Form.Group className="mb-4" controlId="password">
                     <Form.Label className='font-bold'>Password</Form.Label>
                     <Form.Control required className='bg-light' type="password" placeholder="Enter at least 8+ characters" />
@@ -43,7 +51,6 @@ const SignupForm = () => {
                 <Form.Group className="mt-5 d-grid">
                     <Button type='submit' size='lg' className='border-none sign-in-btn bg-cyan-400 hover:bg-cyan-400 text-white font-bold text-xl py-2 shadow-xl'>Sign up</Button>
                 </Form.Group>
-                <p className='text-center m-3'>Already have an account? <a href='/customer/login' className='text-cyan-400 font-semibold'>Sign in</a></p>
             </Form>
         </div>
     )

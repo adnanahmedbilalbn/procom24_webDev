@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUser } from '../store';
+import SignupForm from './Signup';
 
 const CustomerLogin = () => {
 
@@ -57,8 +58,16 @@ const CustomerLogin = () => {
         }
     }
 
+    const [isSignup, setSignup] = useState(false)
 
     return (
+       <>
+         
+
+        {isSignup?
+        
+        <SignupForm />:
+
         <div className='xl:mx-16'>
             <div className=' flex align-middle justify-center text-center py-4'>
                 <span className='text-2xl text-cyan-400 pe-2'><RiWallet2Fill /></span>
@@ -82,6 +91,19 @@ const CustomerLogin = () => {
                 </Form.Group>
             </Form>
         </div>
+
+        }
+        {isSignup? 
+
+        <p className='text-center m-3 cursor-pointer'>Already have an account? <a className='text-cyan-400 font-semibold' onClick={()=>{setSignup(false)}}>Sign in</a></p>
+        
+        :
+        <div className='cursor-pointer	' > <p className='flex justify-center mt-5 mr-1'> New here ? <span className='text-cyan-400 ml-1' onClick={()=>{setSignup(true)}}> Sigup </span></p> </div>
+        }
+        
+
+        
+       </>
     )
 }
 
