@@ -11,7 +11,6 @@ import { GoChevronDown } from "react-icons/go";
 import { Dropdown } from 'react-bootstrap';
 import { FiUser, FiLogOut } from 'react-icons/fi';
 import { FaChevronDown } from "react-icons/fa6";
-import { RxHamburgerMenu } from "react-icons/rx";
 
 
 const UserDropdown = ({ userName }) => {
@@ -50,7 +49,6 @@ const NavBar = ({ brandName, brandIcon, userName }) => {
   return (
     <Navbar expand="lg" className='border-b-2	'>
       <Container fluid>
-        <span className='toggle-button'><RxHamburgerMenu /></span>
         <Navbar.Brand className='flex	text-base	'>{brandIcon}{brandName}</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -60,13 +58,14 @@ const NavBar = ({ brandName, brandIcon, userName }) => {
             navbarScroll
           >
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex justify-content-center">
             <div>
               <BiSearchAlt  className="ms-2 me-2" />
               <MdOutlineQuestionMark className="ms-2 me-2" />
               <BiMessageDetail className="ms-2 me-2" />
               <FaRegBell className="ms-2 me-2" />
-              <Button className="ms-2 me-2" variant="outline-success"> Create <GoChevronDown /> </Button>
+              {/* <button className="ms-2 me-2 outline-cyan-500	"> Create <GoChevronDown /> </button> */}
+              <Button className="ms-2 me-2 cyan-btn"> Create <GoChevronDown /> </Button>
               <UserDropdown userName={userName} />
             </div>
           </Form>
