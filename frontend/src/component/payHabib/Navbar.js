@@ -34,13 +34,6 @@ const HomeNavbar = () => {
             <Nav.Link className='text-lg px-4' href="#help-center">Help Center</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="/login">
-              <Button variant='outline-lighht' className='font-semibold text-violet-600 px-3'>Log in</Button>
-            </Nav.Link>
-            {/* <Nav.Link href="/">
-              <Button variant='outline-lighht' className='font-semibold text-purple-700 px-3'>Log in</Button>
-            </Nav.Link> */}
-
               <Nav.Link>
                 <Dropdown className='inline ms-2 me-2' show={open} onClick={handleToggle}>
                 <Dropdown.Toggle variant="transparent" id="dropdown-basic">

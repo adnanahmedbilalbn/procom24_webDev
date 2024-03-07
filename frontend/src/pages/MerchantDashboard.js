@@ -8,6 +8,9 @@ import MerchantPayments from './MerchantDashboard/MerchantPayments';
 import MerchantCustomers from './MerchantDashboard/MerchantCustomer';
 import MerchantDashboard2 from './MerchantDashboard/MerchantDashboard';
 import { useNavigate } from "react-router-dom";
+import PaymentForm from './MerchantDashboard/MerchantRequest';
+import MerchantSetting from './MerchantDashboard/MerchantSetting';
+import MerchantReport from './MerchantDashboard/MerchantReport';
 
 const MerchantDashboard = () => {
   const accountNumber = useSelector((state) => state.userData.accountNumber);
@@ -34,8 +37,8 @@ const MerchantDashboard = () => {
   return (
     <div>
       <NavBar
-        brandName={"Customer Portal"}
-        brandIcon={<CiWallet className='text-2xl	text-voilet-400	'/>}
+        brandName={"Merchant Portal"}
+        brandIcon={<CiWallet className='text-2xl	text-violet-800		'/>}
         userName={"Adnan"}
       />
       <div className="container">
@@ -49,7 +52,10 @@ const MerchantDashboard = () => {
           {activeSection === 'Dashboard' && <MerchantDashboard2 />}
           {activeSection === 'Payments' && <MerchantPayments />}
           {activeSection === 'Customers' && <MerchantCustomers />}
-          {activeSection === 'Customers' && <MerchantPayments />}
+          {activeSection === 'Payment Request' && <PaymentForm />}
+          {activeSection === 'Setting' && <MerchantSetting />}
+          {activeSection === 'Report' && <MerchantReport />}
+
           </ div>
         </div>
       </div>

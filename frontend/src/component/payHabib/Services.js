@@ -3,13 +3,18 @@ import Button from 'react-bootstrap/Button';
 
 import { FaArrowRight } from "react-icons/fa";
 
+import img2 from '../../assests/img/web-img-2.png'
+import img3 from '../../assests/img/web-img-3.png'
+
 
 const Services = () => {
     return (
         <div id='services'>
             <div className='row m-16'>
                 <div className='col-lg-6 col-md-6 col-sm-12'>
-                    <div></div>
+                    <div>
+                        <img src={img2} />
+                    </div>
                 </div>
                 <div className='col-lg-6 col-md-6 col-sm-12 lg:p-16'>
                     <div className=''>
@@ -36,7 +41,9 @@ const Services = () => {
                     </div>
                 </div>
                 <div className='col-lg-6 col-md-6 col-sm-12'>
-                    <div></div>
+                    <div>
+                        <img src={img3} />
+                    </div>
                 </div>
             </div>
         </div>
