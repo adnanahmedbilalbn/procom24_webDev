@@ -70,22 +70,22 @@ const ResponsiveTable = ({headers, data }) => {
 
   console.log(data)
 
-  function payRequest(rowData, rowIndex){
+  async function payRequest(rowData, rowIndex){
     data = {"id": rowData.id, "status":"Accepted"};
     try {
-      const response = axios.post('https://api.example.com/post', data);
-      console.log('Response from server:', response.data);
+      const response = await axios.post('https://api.example.com/post', data);
+      console.log('AXIOS Response from server:', response.data);
       // Do something with the response if needed
     } catch (error) {
       console.error('Error posting data:', error);
     }
   }
 
-  function rejectRequest(rowData, rowIndex){
+  async function rejectRequest(rowData, rowIndex){
     data = {"id": rowData.id, "status":"Rejected"};
     try {
-      const response = axios.post('https://api.example.com/post', data);
-      console.log('Response from server:', response.data);
+      const response = await axios.post('https://api.example.com/post', data);
+      console.log('AXIOS Response from server:', response.data);
       // Do something with the response if needed
     } catch (error) {
       console.error('Error posting data:', error);
