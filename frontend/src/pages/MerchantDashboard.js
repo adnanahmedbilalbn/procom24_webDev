@@ -38,15 +38,10 @@ const MerchantDashboard = () => {
   return (
     <div>
       <NavBar
-<<<<<<< HEAD
-        brandName={"Customer Portal"}
-        brandIcon={<CiWallet className='text-2xl	text-teal-400	'/>}
-        userName={"Merchant"}
-=======
         brandName={"Merchant Portal"}
         brandIcon={<CiWallet className='text-2xl	text-violet-800		'/>}
         userName={"Adnan"}
->>>>>>> 68ac184d58a20baafc2289e30cd5392d538235b4
+
       />
       <div className="container">
         <div className="row">
