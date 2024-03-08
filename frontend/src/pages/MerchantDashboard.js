@@ -1,18 +1,22 @@
+// Dashboard.js
 import React, { useState } from 'react';
 import NavBar from '../common/Navbar';
+import Sidebar from '../common/Sidebar';
+import Payment from './CustomerDashboard/Payment';
+import InstantPayment from './CustomerDashboard/InstantPayment';
+import QRScan from './CustomerDashboard/QRScan';
 import { CiWallet } from "react-icons/ci";
 import { useFetchPaymentsQuery, useFetchAllPaymentsQuery } from '../store';
 import { useSelector } from "react-redux";
 import MerchantSidebar from './MerchantDashboard/MerchantSidebar';
-import MerchantPayments from './MerchantDashboard/MerchantPayments';
-import MerchantCustomers from './MerchantDashboard/MerchantCustomer';
-import MerchantDashboard2 from './MerchantDashboard/MerchantDashboard';
 import { useNavigate } from "react-router-dom";
 
 const MerchantDashboard = () => {
-  const accountNumber = useSelector((state) => state.userData.accountNumber);
-  const { data, isSuccess } = useFetchPaymentsQuery(accountNumber);
-  const {allPaymentData, _} = useFetchAllPaymentsQuery();
+  // const accountNumber = useSelector((state) => state.userData.accountNumber);
+  const { data, isSuccess } = useFetchPaymentsQuery(-99);
+
+  console.log(data)
+  
   const [activeSection, setActiveSection] = useState('payment');
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -32,8 +36,8 @@ const MerchantDashboard = () => {
     <div>
       <NavBar
         brandName={"Customer Portal"}
-        brandIcon={<CiWallet className='text-2xl	text-voilet-400	'/>}
-        userName={"Adnan"}
+        brandIcon={<CiWallet className='text-2xl	text-teal-400	'/>}
+        userName={"Merchant"}
       />
       <div className="container">
         <div className="row">
@@ -43,7 +47,7 @@ const MerchantDashboard = () => {
           {/*  */}
           <div className="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 dashboard-main">
 
-          {activeSection === 'payment' && <Payment merchant={true} data={data} allPaymentData={allPaymentData}/>}
+          {activeSection === 'payment' && <Payment data={data}/>}
           {activeSection === 'instantPayment' && <InstantPayment />}
           {activeSection === 'qrScan' && <QRScan />}
           </ div>
