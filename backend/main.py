@@ -58,9 +58,8 @@ def get_payments(accountNumber: int, db: Session = Depends(get_db)):
     return crud.get_all_payments_of_customer(db=db, accountNumber=accountNumber)
 
 @app.post("/api/setStatus/")
-def set_status(id: int, status:str, db: Session = Depends(get_db)):
-    print(status)
-    return crud.setStatus(db=db, id=id, status=status)
+def set_status(data:object, db: Session = Depends(get_db)):
+    return crud.setStatus(db=db, id=data.id, status=data.status)
 
 # @app.get("/api/getAllPayments", response_model=[])
 # def get_payments(db: Session = Depends(get_db)):

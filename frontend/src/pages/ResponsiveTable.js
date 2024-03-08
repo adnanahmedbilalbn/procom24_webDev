@@ -59,6 +59,7 @@
 import React, { useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import { useChangePaymentStatusMutation } from '../store';
+import axios from 'axios';
 
 const ResponsiveTable = ({headers, data }) => {
 
@@ -70,13 +71,25 @@ const ResponsiveTable = ({headers, data }) => {
   console.log(data)
 
   function payRequest(rowData, rowIndex){
-    setId(rowData.id);
-    setStatus("Accepted")
+    data = {"id": rowData.id, "status":"Accepted"};
+    try {
+      const response = axios.post('https://api.example.com/post', data);
+      console.log('Response from server:', response.data);
+      // Do something with the response if needed
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
   }
 
   function rejectRequest(rowData, rowIndex){
-    setId(rowData.id)
-    setStatus("Rejected")
+    data = {"id": rowData.id, "status":"Rejected"};
+    try {
+      const response = axios.post('https://api.example.com/post', data);
+      console.log('Response from server:', response.data);
+      // Do something with the response if needed
+    } catch (error) {
+      console.error('Error posting data:', error);
+    }
   }
 
   return (
