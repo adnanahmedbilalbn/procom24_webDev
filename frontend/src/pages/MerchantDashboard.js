@@ -51,11 +51,6 @@ const MerchantDashboard = () => {
           {/*  */}
           <div className="col-12 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 dashboard-main">
 
-<<<<<<< HEAD
-          {activeSection === 'payment' && <Payment data={data}/>}
-          {activeSection === 'instantPayment' && <InstantPayment />}
-          {activeSection === 'qrScan' && <QRScan />}
-=======
           {activeSection === 'Dashboard' && <MerchantDashboard2 />}
           {activeSection === 'Payments' && <MerchantPayments />}
           {activeSection === 'Customers' && <MerchantCustomers />}
@@ -63,7 +58,6 @@ const MerchantDashboard = () => {
           {activeSection === 'Setting' && <MerchantSetting />}
           {activeSection === 'Report' && <MerchantReport />}
 
->>>>>>> 68ac184d58a20baafc2289e30cd5392d538235b4
           </ div>
         </div>
       </div>
