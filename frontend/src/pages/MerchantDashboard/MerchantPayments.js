@@ -8,25 +8,30 @@ const MerchantDashboard2 = ({data}) => {
         <>
         <h2 className='text-3xl p-3	'>Payments</h2>
         <div className='flex facts-main row '>
-        <div className='facts-container teal-box col-12 col-lg-4 col-md-6 col-sm-10'>
+        <div className='facts-container teal-box col-12 col-lg-3 col-md-6 col-sm-10'>
           <p>All Payments</p>
           <h2>3,500 pkr</h2>
           <div className='facts-number my-3'>234 records</div>
         </div>
-        <div className='facts-container green-box col-12 col-lg-4 col-md-6 col-sm-10'>
+        <div className='facts-container green-box col-12 col-lg-3 col-md-6 col-sm-10'>
           <p>Succeeded</p>
           <h2>500</h2>
           <div className='facts-number my-3'>234 records</div>
         </div>
-        <div className='facts-container red-box col-12 col-lg-4 col-md-6 col-sm-10'>
+        <div className='facts-container red-box col-12 col-lg-3 col-md-6 col-sm-10'>
           <p>Rejected</p>
           <h2>440</h2>
           <div className='facts-number my-3'>234 records</div>
         </div>
+        <div className='facts-container red-box bg-yellow-100	 col-12 col-lg-3 col-md-6 col-sm-10'>
+          <p>Pending</p>
+          <h2>4547 PKR</h2>
+          <div className='facts-number my-3'>40 records</div>
+        </div>
         </div>
         {/* <ResponsiveTable /> */}
         <ResponsiveTable
-           headers={['CUSTOMER ACCOUNT NO.', 'MERCHANT ACCOUNT NO.', 'STATUS', 'DESCRIPTION', 'TIME', 'DATE', 'AMOUNT']}
+           headers={['CUSTOMER ACCOUNT NO.','STATUS', 'DESCRIPTION', 'Bank', 'DATE','Customer', 'AMOUNT']}
            data={
               data ?
                 data?.map((record) => {
@@ -47,8 +52,10 @@ const MerchantDashboard2 = ({data}) => {
                 :
 
                 [
-                  ['1', 'John', 'Doe', '@john_doe', '02:00 PM', '07/03/2024', '60 $'],
-                  ['2', 'Jane', 'Doe', '@jane_doe', '02:00 PM', '07/03/2024', '60 $'],
+                  ['44518777', 'success', 'Payment Purpose', 'Bank habib','07/03/2024','02:00 PM','Adnan', '60 $'],
+                  ['44518777', 'success', 'Payment Purpose', 'Bank habib','07/03/2024','02:00 PM','Adnan', '60 $'],
+                  ['44518777', 'success', 'Payment Purpose', 'Bank habib','07/03/2024','02:00 PM','Adnan', '60 $'],
+
                 ]
            }
         />

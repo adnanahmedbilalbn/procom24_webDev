@@ -4,6 +4,7 @@ import Banner from '../component/payHabib/Banner'
 import Services from '../component/payHabib/Services'
 import Solutions from '../component/payHabib/Solution'
 import Pricing from '../component/payHabib/Pricing'
+import Footer from '../common/Footer'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Services />
       <Solutions />
       <Pricing />
+      <Footer />
     </div>
   )
 }
